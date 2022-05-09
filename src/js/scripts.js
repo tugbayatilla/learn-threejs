@@ -40,9 +40,9 @@ const box = new THREE.Mesh(boxGeomerty, boxMaterial);
 scene.add(box);
 
 // ROTATE THE BOX IN TIME
-function animate() {
-    box.rotation.x += 0.01;
-    box.rotation.y += 0.01;
+function animate(time) {
+    box.rotation.x = time / 1000;
+    box.rotation.y = time / 1000;
 
     // render using scne and camera
     renderer.render(scene, camera);
