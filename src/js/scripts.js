@@ -33,5 +33,13 @@ camera.position.z = 5;
 camera.position.set(0, 2, 5);
 
 
+// ADDING A BOX
+const boxGeomerty = new THREE.BoxGeometry();
+const boxMaterial = new THREE.MeshBasicMaterial({color: 0x00FF00 });
+const box = new THREE.Mesh(boxGeomerty, boxMaterial);
+scene.add(box);
+
+
+
 // render using scne and camera
 renderer.render(scene, camera);
