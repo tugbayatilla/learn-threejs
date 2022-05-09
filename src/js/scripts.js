@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import * as dat from 'dat.gui';
 
 // create top object in the hierarchy 
 const renderer = new THREE.WebGLRenderer();
@@ -67,8 +68,19 @@ const sphereMaterial = new THREE.MeshBasicMaterial(
     });
 const sphere = new THREE.Mesh(sphereGeomerty, sphereMaterial);
 scene.add(sphere);
+sphere.position.set(-10,5,5);
 
 // NOTE:  basic material does not require light but other materials do.
+
+// ADD GUI ELEMENTS
+const gui = new dat.GUI();
+const options = {
+    sphereColor: '#FFEA00'
+};
+gui.addColor(options, 'sphereColor').onChange(function(e){
+    sphere.material.color.set(e);
+});
+
 
 // ROTATE THE BOX IN TIME
 function animate(time) {
