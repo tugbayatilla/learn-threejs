@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { CameraHelper } from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // create top object in the hierarchy 
 const renderer = new THREE.WebGLRenderer();
@@ -23,6 +23,7 @@ const camera = new THREE.PerspectiveCamera(
     , 1000  // far
 );
 
+
 // create axesHelper
 const axesHelper = new THREE.AxesHelper(3);
 // add to scene
@@ -32,6 +33,9 @@ camera.position.z = 5;
 // OR use set method
 camera.position.set(0, 2, 5);
 
+// CONTROL CAMERA
+const orbit = new OrbitControls(camera, renderer.domElement);
+orbit.update();
 
 // ADDING A BOX
 const boxGeomerty = new THREE.BoxGeometry();
