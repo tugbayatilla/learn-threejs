@@ -85,11 +85,18 @@ gui.add(options, 'wireframe').onChange(function(e){
     sphere.material.wireframe = e;
 });
 
+// BOUNCE THE SPHERE
+let step = 0;
+let speed = 0.01;
 
 // ROTATE THE BOX IN TIME
 function animate(time) {
     box.rotation.x = time / 1000;
     box.rotation.y = time / 1000;
+
+    // bouncing logic
+    step += speed;
+    sphere.position.y = 10 * Math.abs(Math.sin(step));
 
     // render using scne and camera
     renderer.render(scene, camera);
