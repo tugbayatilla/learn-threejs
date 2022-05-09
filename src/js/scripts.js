@@ -17,7 +17,7 @@ const scene = new THREE.Scene();
 
 // creating camera - perspective
 const camera = new THREE.PerspectiveCamera(
-    75    //fov
+    45    //fov
     , window.innerWidth / window.innerHeight // aspect
     , 0.1   // near
     , 1000  // far
@@ -31,7 +31,7 @@ scene.add(axesHelper);
 // change camera position to see the axesHelper
 camera.position.z = 5;
 // OR use set method
-camera.position.set(0, 2, 5);
+camera.position.set(-10, 30, 30);
 
 // CONTROL CAMERA
 const orbit = new OrbitControls(camera, renderer.domElement);
