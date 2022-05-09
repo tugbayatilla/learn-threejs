@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel": "^6.23.0"
+    "@types/three": "^0.140.0",
+    "babel": "^6.23.0",
+    "parcel": "^2.5.0"
   },
   "dependencies": {
     "three": "^0.140.1"
