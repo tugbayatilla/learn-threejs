@@ -49,7 +49,11 @@ const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
 const plane = new THREE.Mesh(planeGeomerty, planeMaterial);
 scene.add(plane);
 
-
+// ADD GRID 
+const gridHelper = new THREE.GridHelper(30);
+scene.add(gridHelper);
+// fix: plane and grid merged
+plane.rotation.x = -0.5 * Math.PI;
 
 // ROTATE THE BOX IN TIME
 function animate(time) {
