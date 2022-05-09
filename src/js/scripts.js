@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { CameraHelper } from 'three';
 
 // create top object in the hierarchy 
 const renderer = new THREE.WebGLRenderer();
@@ -22,6 +23,14 @@ const camera = new THREE.PerspectiveCamera(
     , 1000  // far
 );
 
+// create axesHelper
+const axesHelper = new THREE.AxesHelper(3);
+// add to scene
+scene.add(axesHelper);
+// change camera position to see the axesHelper
+camera.position.z = 5;
+// OR use set method
+camera.position.set(0, 2, 5);
 
 
 // render using scne and camera
