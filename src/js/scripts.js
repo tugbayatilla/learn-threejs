@@ -45,7 +45,8 @@ scene.add(box);
 
 // ADD PLANE
 const planeGeomerty = new THREE.PlaneGeometry(30,30);
-const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
+const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, 
+    side: THREE.DoubleSide });
 const plane = new THREE.Mesh(planeGeomerty, planeMaterial);
 scene.add(plane);
 
