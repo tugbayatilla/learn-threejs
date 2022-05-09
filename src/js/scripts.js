@@ -64,7 +64,7 @@ const sphereGeomerty = new THREE.SphereGeometry(4, 50, 50);
 const sphereMaterial = new THREE.MeshBasicMaterial(
     {
         color: 0x0000FF,
-        wireframe: true // makes sphere surface smooth
+        wireframe: false // makes sphere surface smooth
     });
 const sphere = new THREE.Mesh(sphereGeomerty, sphereMaterial);
 scene.add(sphere);
@@ -75,10 +75,14 @@ sphere.position.set(-10,5,5);
 // ADD GUI ELEMENTS
 const gui = new dat.GUI();
 const options = {
-    sphereColor: '#FFEA00'
+    sphereColor: '#FFEA00',
+    wireframe: false
 };
 gui.addColor(options, 'sphereColor').onChange(function(e){
     sphere.material.color.set(e);
+});
+gui.add(options, 'wireframe').onChange(function(e){
+    sphere.material.wireframe = e;
 });
 
 
