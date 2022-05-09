@@ -68,6 +68,7 @@ const sphereMaterial = new THREE.MeshBasicMaterial(
 const sphere = new THREE.Mesh(sphereGeomerty, sphereMaterial);
 scene.add(sphere);
 
+// NOTE:  basic material does not require light but other materials do.
 
 // ROTATE THE BOX IN TIME
 function animate(time) {
