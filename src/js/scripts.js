@@ -17,7 +17,7 @@ const scene = new THREE.Scene();
 
 // creating camera - perspective
 const camera = new THREE.PerspectiveCamera(
-      75    //fov
+    75    //fov
     , window.innerWidth / window.innerHeight // aspect
     , 0.1   // near
     , 1000  // far
@@ -35,11 +35,20 @@ camera.position.set(0, 2, 5);
 
 // ADDING A BOX
 const boxGeomerty = new THREE.BoxGeometry();
-const boxMaterial = new THREE.MeshBasicMaterial({color: 0x00FF00 });
+const boxMaterial = new THREE.MeshBasicMaterial({ color: 0x00FF00 });
 const box = new THREE.Mesh(boxGeomerty, boxMaterial);
 scene.add(box);
 
+// ROTATE THE BOX IN TIME
+function animate() {
+    box.rotation.x += 0.01;
+    box.rotation.y += 0.01;
+
+    // render using scne and camera
+    renderer.render(scene, camera);
+}
+
+renderer.setAnimationLoop(animate);
 
 
-// render using scne and camera
-renderer.render(scene, camera);
+
