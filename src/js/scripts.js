@@ -43,6 +43,14 @@ const boxMaterial = new THREE.MeshBasicMaterial({ color: 0x00FF00 });
 const box = new THREE.Mesh(boxGeomerty, boxMaterial);
 scene.add(box);
 
+// ADD PLANE
+const planeGeomerty = new THREE.PlaneGeometry(30,30);
+const planeMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF });
+const plane = new THREE.Mesh(planeGeomerty, planeMaterial);
+scene.add(plane);
+
+
+
 // ROTATE THE BOX IN TIME
 function animate(time) {
     box.rotation.x = time / 1000;
