@@ -78,12 +78,6 @@ sphere.castShadow = true; // enable shadow
 // LIGHTS
 const ambientLight = new THREE.AmbientLight(0x333333);
 scene.add(ambientLight);
-// create directional light
-const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 0.8);
-scene.add(directionalLight);
-directionalLight.position.set(-30, 50, 0);
-directionalLight.castShadow = true; // enable shadow
-directionalLight.shadow.camera.bottom = -12;
 
 // // create directional light
 // const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 0.8);
@@ -98,11 +92,14 @@ directionalLight.shadow.camera.bottom = -12;
 // const dLightShadowHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
 // scene.add(dLightShadowHelper);
 
-const spotLight = new THREE.SpotLight('Red');
+const spotLight = new THREE.SpotLight(0xFFFFFF);
 scene.add(spotLight);
+spotLight.position.set(-100, 100, 0);
+spotLight.castShadow = true;
 
-const dLightShadowHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
-scene.add(dLightShadowHelper);
+const spotLightHelper = new THREE.SpotLightHelper(spotLight);
+scene.add(spotLightHelper);
+
 
 // ADD GUI ELEMENTS
 const gui = new dat.GUI();
