@@ -597,7 +597,7 @@ gui.addColor(options, 'sphereColor').onChange(function(e) {
 gui.add(options, 'wireframe').onChange(function(e) {
     sphere.material.wireframe = e;
 });
-gui.add(options, 'speed', 0, 1);
+gui.add(options, 'speed', 0, 0.1);
 // BOUNCE THE SPHERE
 let step = 0;
 // ROTATE THE BOX IN TIME
@@ -607,7 +607,6 @@ function animate(time) {
     // bouncing logic
     step += options.speed;
     sphere.position.y = 10 * Math.abs(Math.sin(step));
-    console.log(sphere.position);
     // render using scne and camera
     renderer.render(scene, camera);
 }
