@@ -83,6 +83,7 @@ const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 0.8);
 scene.add(directionalLight);
 directionalLight.position.set(-30, 50, 0);
 directionalLight.castShadow = true; // enable shadow
+directionalLight.shadow.camera.bottom = -12;
 
 // create directional light Helper
 const dLightHelper = new THREE.DirectionalLightHelper(directionalLight, 5);
