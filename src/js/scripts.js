@@ -89,6 +89,9 @@ directionalLight.shadow.camera.bottom = -12;
 const dLightHelper = new THREE.DirectionalLightHelper(directionalLight, 5);
 scene.add(dLightHelper);
 
+const spotLight = new THREE.SpotLight('Red');
+scene.add(spotLight);
+
 const dLightShadowHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
 scene.add(dLightShadowHelper);
 
