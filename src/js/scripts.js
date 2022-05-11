@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import * as dat from 'dat.gui';
 
+import nebula from '../img/nebula.jpeg'
+
 // create top object in the hierarchy 
 const renderer = new THREE.WebGLRenderer();
 renderer.shadowMap.enabled = true; // enable shadow
@@ -9,16 +11,17 @@ renderer.shadowMap.enabled = true; // enable shadow
 // set size for all window
 renderer.setSize(window.innerWidth, window.innerHeight);
 // change backgroud
-renderer.setClearColor(0xFFEA00);
-
+//renderer.setClearColor(0xFFEA00);
 
 // add the rendere to the page
 document.body.appendChild(renderer.domElement);
 
-
-
 // creating scene
 const scene = new THREE.Scene();
+
+// Background TEXTURE using image
+const textureLoader = new THREE.TextureLoader();
+scene.background = textureLoader.load(nebula);
 
 // when you zoom out, objects will disappear
 // scene.fog = new THREE.Fog(0xFFFFFF, 0, 200); // 1. way: between 0 and 200
