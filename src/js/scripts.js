@@ -46,7 +46,7 @@ scene.add(box);
 
 // ADD PLANE
 const planeGeomerty = new THREE.PlaneGeometry(30, 30);
-const planeMaterial = new THREE.MeshBasicMaterial({
+const planeMaterial = new THREE.MeshStandardMaterial({
     color: 0xFFFFFF,
     side: THREE.DoubleSide
 });
@@ -71,6 +71,10 @@ scene.add(sphere);
 sphere.position.set(-10,5,5);
 
 // NOTE:  basic material does not require light but other materials do.
+
+// LIGHTS
+const ambientLight = new THREE.AmbientLight(0x333333);
+scene.add(ambientLight);
 
 // ADD GUI ELEMENTS
 const gui = new dat.GUI();
