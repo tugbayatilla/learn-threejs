@@ -4,6 +4,7 @@ import * as dat from 'dat.gui';
 
 // create top object in the hierarchy 
 const renderer = new THREE.WebGLRenderer();
+renderer.shadowMap.enabled = true; // enable shadow
 
 // set size for all window
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -52,6 +53,7 @@ const planeMaterial = new THREE.MeshStandardMaterial({
 });
 const plane = new THREE.Mesh(planeGeomerty, planeMaterial);
 scene.add(plane);
+plane.receiveShadow = true; // enable shadow
 
 // ADD GRID 
 const gridHelper = new THREE.GridHelper(30);
@@ -68,7 +70,8 @@ const sphereMaterial = new THREE.MeshStandardMaterial(
     });
 const sphere = new THREE.Mesh(sphereGeomerty, sphereMaterial);
 scene.add(sphere);
-sphere.position.set(-10,5,5);
+sphere.position.set(-10,10,5);
+sphere.castShadow = true; // enable shadow
 
 // NOTE:  basic material does not require light but other materials do.
 
@@ -79,6 +82,7 @@ scene.add(ambientLight);
 const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 0.8);
 scene.add(directionalLight);
 directionalLight.position.set(-30, 50, 0);
+directionalLight.castShadow = true; // enable shadow
 
 // create directional light Helper
 const dLightHelper = new THREE.DirectionalLightHelper(directionalLight, 5);
