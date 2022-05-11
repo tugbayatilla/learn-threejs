@@ -8,6 +8,9 @@ renderer.shadowMap.enabled = true; // enable shadow
 
 // set size for all window
 renderer.setSize(window.innerWidth, window.innerHeight);
+// change backgroud
+renderer.setClearColor(0xFFEA00);
+
 
 // add the rendere to the page
 document.body.appendChild(renderer.domElement);
@@ -20,6 +23,7 @@ const scene = new THREE.Scene();
 // when you zoom out, objects will disappear
 // scene.fog = new THREE.Fog(0xFFFFFF, 0, 200); // 1. way: between 0 and 200
 scene.fog = new THREE.FogExp2(0xFFFFFF, 0.01); // 2. way: exponancially changes the value
+
 
 // creating camera - perspective
 const camera = new THREE.PerspectiveCamera(
