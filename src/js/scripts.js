@@ -61,7 +61,7 @@ plane.rotation.x = -0.5 * Math.PI;
 
 // ADD SPHERE
 const sphereGeomerty = new THREE.SphereGeometry(4, 50, 50);
-const sphereMaterial = new THREE.MeshBasicMaterial(
+const sphereMaterial = new THREE.MeshStandardMaterial(
     {
         color: 0x0000FF,
         wireframe: false // makes sphere surface smooth
@@ -75,6 +75,13 @@ sphere.position.set(-10,5,5);
 // LIGHTS
 const ambientLight = new THREE.AmbientLight(0x333333);
 scene.add(ambientLight);
+// create directional light
+const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 0.8);
+scene.add(directionalLight);
+// create directional light Helper
+const dLightHelper = new THREE.DirectionalLightHelper(directionalLight);
+scene.add(dLightHelper);
+
 
 // ADD GUI ELEMENTS
 const gui = new dat.GUI();
