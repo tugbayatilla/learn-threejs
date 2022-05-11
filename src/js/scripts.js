@@ -12,7 +12,7 @@ renderer.shadowMap.enabled = true; // enable shadow
 // set size for all window
 renderer.setSize(window.innerWidth, window.innerHeight);
 // change backgroud
-//renderer.setClearColor(0xFFEA00);
+renderer.setClearColor(0xFFEA00);
 
 // add the rendere to the page
 document.body.appendChild(renderer.domElement);
@@ -68,6 +68,16 @@ const boxMaterial = new THREE.MeshBasicMaterial({ color: 0x00FF00 });
 const box = new THREE.Mesh(boxGeomerty, boxMaterial);
 scene.add(box);
 
+// ADDING A BOX with TEXTURE
+const boxGeomerty2 = new THREE.BoxGeometry(4, 4, 4);
+const boxMaterial2 = new THREE.MeshStandardMaterial({
+    //color: 0x00FF00,
+    map: textureLoader.load(nebula)
+});
+const box2 = new THREE.Mesh(boxGeomerty2, boxMaterial2);
+scene.add(box2);
+box2.position.set(0, 15, 10);
+
 // ADD PLANE
 const planeGeomerty = new THREE.PlaneGeometry(30, 30);
 const planeMaterial = new THREE.MeshStandardMaterial({
@@ -93,7 +103,7 @@ const sphereMaterial = new THREE.MeshStandardMaterial(
     });
 const sphere = new THREE.Mesh(sphereGeomerty, sphereMaterial);
 scene.add(sphere);
-sphere.position.set(-10,10,0);
+sphere.position.set(-10, 10, 0);
 sphere.castShadow = true; // enable shadow
 
 // NOTE:  basic material does not require light but other materials do.
@@ -131,16 +141,16 @@ const options = {
     sphereColor: '#FFEA00',
     wireframe: false,
     speed: 0.01,
-    light : {
+    light: {
         angle: 0.2,
         penumbra: 0,
         intensity: 1
     }
 };
-gui.addColor(options, 'sphereColor').onChange(function(e){
+gui.addColor(options, 'sphereColor').onChange(function (e) {
     sphere.material.color.set(e);
 });
-gui.add(options, 'wireframe').onChange(function(e){
+gui.add(options, 'wireframe').onChange(function (e) {
     sphere.material.wireframe = e;
 });
 gui.add(options, 'speed', 0, 0.1);
