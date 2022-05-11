@@ -22,18 +22,18 @@ const scene = new THREE.Scene();
 
 // Background TEXTURE using image
 const textureLoader = new THREE.TextureLoader(); // 1. way
-//scene.background = textureLoader.load(nebula);
+scene.background = textureLoader.load(nebula);
 
-// cube texture loader
-const cubeTextureLoader = new THREE.CubeTextureLoader(); // 2. way
-scene.background = cubeTextureLoader.load([
-    nebula,
-    nebula,
-    stars,
-    stars,
-    stars,
-    stars
-]);
+// cube texture loader - TODO: ISSUE: NOT WORKING- FIND OUT WHY
+// const cubeTextureLoader = new THREE.CubeTextureLoader(); // 2. way
+// scene.background = cubeTextureLoader.load([
+//     nebula,
+//     nebula,
+//     stars,
+//     stars,
+//     stars,
+//     stars
+// ]);
 
 // when you zoom out, objects will disappear
 // scene.fog = new THREE.Fog(0xFFFFFF, 0, 200); // 1. way: between 0 and 200
