@@ -70,7 +70,7 @@ const sphereMaterial = new THREE.MeshStandardMaterial(
     });
 const sphere = new THREE.Mesh(sphereGeomerty, sphereMaterial);
 scene.add(sphere);
-sphere.position.set(-10,10,5);
+sphere.position.set(-10,10,0);
 sphere.castShadow = true; // enable shadow
 
 // NOTE:  basic material does not require light but other materials do.
@@ -88,6 +88,8 @@ directionalLight.castShadow = true; // enable shadow
 const dLightHelper = new THREE.DirectionalLightHelper(directionalLight, 5);
 scene.add(dLightHelper);
 
+const dLightShadowHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
+scene.add(dLightShadowHelper);
 
 // ADD GUI ELEMENTS
 const gui = new dat.GUI();
