@@ -64,9 +64,11 @@ orbit.update();
 
 // ADDING A BOX
 const boxGeomerty = new THREE.BoxGeometry();
-const boxMaterial = new THREE.MeshBasicMaterial({ color: 0x00FF00 });
+const boxMaterial = new THREE.MeshStandardMaterial({ color: 0x00FF00 });
 const box = new THREE.Mesh(boxGeomerty, boxMaterial);
 scene.add(box);
+box.position.set(3, 3, 3)
+box.castShadow = true;
 
 // ADDING A BOX with TEXTURE
 const boxGeomerty2 = new THREE.BoxGeometry(4, 4, 4);
