@@ -2,4 +2,5 @@
 
 
 - npm update
-- node_modules/.bin/parcel src/index.htm
+- npm run build
+- npm run deploy
