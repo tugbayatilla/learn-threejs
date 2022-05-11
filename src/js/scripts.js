@@ -107,7 +107,12 @@ const gui = new dat.GUI();
 const options = {
     sphereColor: '#FFEA00',
     wireframe: false,
-    speed: 0.01
+    speed: 0.01,
+    light : {
+        angle: 0.2,
+        penumbra: 0,
+        intensity: 1
+    }
 };
 gui.addColor(options, 'sphereColor').onChange(function(e){
     sphere.material.color.set(e);
@@ -116,6 +121,12 @@ gui.add(options, 'wireframe').onChange(function(e){
     sphere.material.wireframe = e;
 });
 gui.add(options, 'speed', 0, 0.1);
+
+// light
+gui.add(options.light, 'angle', 0, 1);
+gui.add(options.light, 'penumbra', 0, 1);
+gui.add(options.light, 'intensity', 0, 1);
+
 
 // BOUNCE THE SPHERE
 let step = 0;
@@ -128,6 +139,11 @@ function animate(time) {
     // bouncing logic
     step += options.speed;
     sphere.position.y = 10 * Math.abs(Math.sin(step));
+
+    spotLight.angle = options.light.angle;
+    spotLight.penumbra = options.light.penumbra;
+    spotLight.intensity = options.light.intensity;
+    spotLightHelper.update();
 
     // render using scne and camera
     renderer.render(scene, camera);
