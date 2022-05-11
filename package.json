@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d ./dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/three": "^0.140.0",
-    "babel": "^6.23.0",
+    "gh-pages": "^4.0.0",
     "parcel": "^2.5.0"
   },
   "dependencies": {
